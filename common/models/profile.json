@@ -33,7 +33,6 @@
       "type": "belongsTo",
       "model": "user",
       "foreignKey": "userId"
-
     }
   },
   "acls": [],
