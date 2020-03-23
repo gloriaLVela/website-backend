@@ -34,36 +34,36 @@ boot(app, __dirname, function (err) {
 });
 
 // Display the models available
-console.log(Object.keys(app.models));
+// console.log(Object.keys(app.models));
 
 // find the users
-app.models.user.find((err, result) => {
-  // Create the first user
-  if (result.length == 0) {
-    const user = {
-      email: 'nick@nick.com',
-      password: 'test',
-      username: 'nick',
-    };
-    app.models.user.create(user, (err, result) => {
-      console.log('Tried to create a user', err, result);
-    });
-  }
-});
+// app.models.user.find((err, result) => {
+//   // Create the first user
+//   if (result.length == 0) {
+//     const user = {
+//       email: 'nick@nick.com',
+//       password: 'test',
+//       username: 'nick',
+//     };
+//     app.models.user.create(user, (err, result) => {
+//       console.log('Tried to create a user', err, result);
+//     });
+//   }
+// });
 
-app.models.user.afterRemote('create', (ctx, user, next) => {
-  console.log('New User is ', user);
-  app.models.Profile.create({
-    first_name: user.username,
-    created_at: new Date(),
-    userId: user.id
-  }, (err, result) => {
-    if (!err && result) {
-      console.log('Created new profile!', result);
-    }
-    else {
-      console.log('There is an error', err);
-    }
-    next();
-  });
-});
+// app.models.user.afterRemote('create', (ctx, user, next) => {
+//   console.log('New User is ', user);
+//   app.models.Profile.create({
+//     first_name: user.username,
+//     created_at: new Date(),
+//     userId: user.id
+//   }, (err, result) => {
+//     if (!err && result) {
+//       console.log('Created new profile!', result);
+//     }
+//     else {
+//       console.log('There is an error', err);
+//     }
+//     next();
+//   });
+// });
