@@ -29,3 +29,52 @@ var models = require('./server.js').models;
 //     });
 //   }
 // });
+
+// var toSave = [
+//     {name: 'Rosy', email: 'Rosy@email,com'},  
+//     {name: 'Petra', email: 'Petra@email,com'}, 
+//     {name: 'Juan', email: 'Juan@email,com'}, 
+//     {name: 'Jose', email: 'Jose@email,com'}, 
+//     {name: 'Miguel', email: 'Miguel@email,com'}, 
+//     {name: 'Paty', email: 'Paty@email,com'}, 
+//     {name: 'Erika', email: 'Erika@email,com'}, 
+//     {name: 'Luis', email: 'Luis@email,com'}, 
+//     {name: 'Rafael', email: 'Rafael@email,com'}, 
+//     {name: 'PinPon', email: 'PinPon@email,com'}, 
+//     {name: 'Cenicienta', email: 'Cenicienta@email,com'},   
+// ];
+
+// toSave.map(obj => {
+//   models.Profile.create(obj, (err, created) => {
+//     console.log('Created?', created);
+//   });
+// });
+
+var filter = {
+  where:{
+    name: {like: 'R'},
+    postCount: {lt: 10}
+  }, // Kind of like MySQL where 
+  order: 'date ASC',
+  limit: 3
+//   include: {
+//     relation: 'Posts',
+//     scope: {
+//       limit: 5,
+//       order: 'date ASC',
+//       include: {
+//         relation: 'Image',
+//         limit: 1,
+//         where: {type: 'thumbnail'}
+//       }
+//     }
+ // }
+};
+
+// models.Profile.find({where: {name: 'Rosy'}}, (err, found) => {
+//   console.log('Found?', err, found);
+// });
+
+models.Profile.find(filter, (err, found) => {
+    console.log('Found?', err, found);
+  });
