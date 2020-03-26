@@ -4,7 +4,7 @@
     "connector": "mongodb",
     "host": "localhost",
     "port": 27017,
-    "database": "mywebsite",
+    "database": "myWebsite",
     "user": "",
     "password": ""
   }
