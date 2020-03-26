@@ -104,6 +104,11 @@ var models = require('./server.js').models;
 //   found.destroy();
 // });
 
-models.Profile.destroyById('5e7cf650aecd55081832476c', (err, found) => {
-  console.log('Found?', err, found);
-});
+// models.Profile.destroyById('5e7cf650aecd55081832476c', (err, found) => {
+//   console.log('Found?', err, found);
+// });
+
+// models.Profile.destroyById('5e7cf650aecd55081832476c', {include: 'Posts'}, (err, found) => {
+//   console.log('Found?', err, found);
+//   found.Posts.destroyAll({date: {lte: new Date('2019-02-04')}});
+// });
