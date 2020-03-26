@@ -31,17 +31,17 @@ var models = require('./server.js').models;
 // });
 
 // var toSave = [
-//     {name: 'Rosy', email: 'Rosy@email,com'},  
-//     {name: 'Petra', email: 'Petra@email,com'}, 
-//     {name: 'Juan', email: 'Juan@email,com'}, 
-//     {name: 'Jose', email: 'Jose@email,com'}, 
-//     {name: 'Miguel', email: 'Miguel@email,com'}, 
-//     {name: 'Paty', email: 'Paty@email,com'}, 
-//     {name: 'Erika', email: 'Erika@email,com'}, 
-//     {name: 'Luis', email: 'Luis@email,com'}, 
-//     {name: 'Rafael', email: 'Rafael@email,com'}, 
-//     {name: 'PinPon', email: 'PinPon@email,com'}, 
-//     {name: 'Cenicienta', email: 'Cenicienta@email,com'},   
+//     {name: 'Rosy', email: 'Rosy@email.com'},  
+//     {name: 'Petra', email: 'Petra@email.com'}, 
+//     {name: 'Juan', email: 'Juan@email.com'}, 
+//     {name: 'Jose', email: 'Jose@email.com'}, 
+//     {name: 'Miguel', email: 'Miguel@email.com'}, 
+//     {name: 'Paty', email: 'Paty@email.com'}, 
+//     {name: 'Erika', email: 'Erika@email.com'}, 
+//     {name: 'Luis', email: 'Luis@email.com'}, 
+//     {name: 'Rafael', email: 'Rafael@email.com'}, 
+//     {name: 'PinPon', email: 'PinPon@email.com'}, 
+//     {name: 'Cenicienta', email: 'Cenicienta@email.com'},   
 // ];
 
 // toSave.map(obj => {
@@ -51,12 +51,16 @@ var models = require('./server.js').models;
 // });
 
 var filter = {
-  where:{
-    name: {like: 'R'},
-    postCount: {lt: 10}
+  where: {
+    email: {like: '@email'},
+    // postCount: {gt: 10}
   }, // Kind of like MySQL where 
   order: 'date ASC',
-  limit: 3
+  limit: 10,
+  skip: 4, // skip the first 
+  fields: {
+    email: true
+  }
 //   include: {
 //     relation: 'Posts',
 //     scope: {
@@ -75,6 +79,10 @@ var filter = {
 //   console.log('Found?', err, found);
 // });
 
-models.Profile.find(filter, (err, found) => {
-    console.log('Found?', err, found);
-  });
+// models.Profile.find(filter, (err, found) => {
+//   console.log('Found?', err, found);
+// });
+
+// models.Profile.findById('5e7ce6c2bdc501390cf3d964', (err, found) => {
+//   console.log('Found?', err, found); 
+// });
