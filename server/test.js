@@ -50,17 +50,27 @@ var models = require('./server.js').models;
 //   });
 // });
 
-var filter = {
-  where: {
-    email: {like: '@email'},
-    // postCount: {gt: 10}
-  }, // Kind of like MySQL where 
-  order: 'date ASC',
-  limit: 10,
-  skip: 4, // skip the first 
-  fields: {
-    email: true
-  }
+// var filter = {
+//   where: {
+//     email: {like: '@email'},
+//     // postCount: {gt: 10}
+//   }, // Kind of like MySQL where 
+//   order: 'date ASC',
+//   limit: 10,
+//   skip: 4, // skip the first 
+//   fields: {
+//     email: true
+//   }var filter = {
+//   where: {
+//     email: {like: '@email'},
+//     // postCount: {gt: 10}
+//   }, // Kind of like MySQL where 
+//   order: 'date ASC',
+//   limit: 10,
+//   skip: 4, // skip the first 
+//   fields: {
+//     email: true
+//   }
 //   include: {
 //     relation: 'Posts',
 //     scope: {
@@ -73,7 +83,7 @@ var filter = {
 //       }
 //     }
  // }
-};
+// };
 
 // models.Profile.find({where: {name: 'Rosy'}}, (err, found) => {
 //   console.log('Found?', err, found);
@@ -86,3 +96,14 @@ var filter = {
 // models.Profile.findById('5e7ce6c2bdc501390cf3d964', (err, found) => {
 //   console.log('Found?', err, found); 
 // });
+
+// ObjectId("5e7cf650aecd55081832476c")
+
+// models.Profile.findById('5e7cf650aecd550818324770', (err, found) => {
+//   console.log('Found?', err, found);
+//   found.destroy();
+// });
+
+models.Profile.destroyById('5e7cf650aecd55081832476c', (err, found) => {
+  console.log('Found?', err, found);
+});
